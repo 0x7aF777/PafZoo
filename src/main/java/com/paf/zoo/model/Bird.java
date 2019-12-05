@@ -5,11 +5,6 @@ import java.util.Objects;
 public abstract class Bird extends Animal {
     private float wingspan;
 
-    public Bird(String name, String favoriteFood, float wingspan) {
-        super(name, favoriteFood);
-        this.wingspan = wingspan;
-    }
-
     public float getWingspan() {
         return wingspan;
     }
@@ -36,5 +31,31 @@ public abstract class Bird extends Animal {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), getWingspan());
+    }
+
+    Bird(Builder<?> builder) {
+        super(builder.name, builder.favoriteFood);
+        this.wingspan = builder.wingspan;
+    }
+
+    abstract static class Builder<T extends Builder<T>> {
+        private String name;
+        private String favoriteFood;
+
+        private float wingspan = -1f; // unknown wing span
+
+        public Builder(String name, String favoriteFood) {
+            this.name = name;
+            this.favoriteFood = favoriteFood;
+        }
+
+        public T wingspan(float span) {
+            this.wingspan = span;
+            return self();
+        }
+
+        abstract Bird build();
+
+        protected abstract T self();
     }
 }

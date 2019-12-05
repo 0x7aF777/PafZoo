@@ -5,6 +5,10 @@ import java.util.Objects;
 public class Dog extends Animal {
     private String dogType;
 
+    public Dog(String name, String favoriteFood) {
+        super(name, favoriteFood);
+    }
+
     public Dog(String name, String favoriteFood, String dogType) {
         super(name, favoriteFood);
         this.dogType = dogType;
@@ -21,7 +25,7 @@ public class Dog extends Animal {
     @Override
     public void display() {
         super.display();
-        System.out.println(String.format("- Dog type: %s.", this.dogType));
+        System.out.println(String.format("- Dog type: %s.", this.dogType == null ? "unknown" : this.dogType));
     }
 
     @Override

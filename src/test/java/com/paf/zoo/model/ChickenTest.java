@@ -10,7 +10,10 @@ public class ChickenTest {
         String name = "Chicken One";
         String food = "Rice";
         float wingspan = 0.5f;
-        Chicken chicken = new Chicken(name, food, wingspan, true);
+        Chicken chicken = Chicken.builder(name, food)
+                .wingspan(wingspan)
+                .isBroiler(true)
+                .build();
         Assert.assertEquals(name, chicken.getName());
         Assert.assertEquals(food, chicken.getFavoriteFood());
         Assert.assertEquals(wingspan, chicken.getWingspan(), 0.0001f);
@@ -29,11 +32,20 @@ public class ChickenTest {
         String food2 = "Corn";
 
         float wingspan = 0.5f;
-        Chicken chicken1 = new Chicken(name1, food1, wingspan, true);
-        Chicken chicken2 = new Chicken(name2, food2, wingspan, true);
+        Chicken chicken1 = Chicken.builder(name1, food1)
+                .wingspan(wingspan)
+                .isBroiler(true)
+                .build();
+        Chicken chicken2 = Chicken.builder(name2, food2)
+                .wingspan(wingspan)
+                .isBroiler(true)
+                .build();
         Assert.assertNotEquals(chicken1, chicken2);
 
-        Chicken chicken3 = new Chicken(name1, food1, wingspan, true);
+        Chicken chicken3 = Chicken.builder(name1, food1)
+                .wingspan(wingspan)
+                .isBroiler(true)
+                .build();
         // Even two chickens have exactly the same properties(name, favorite food, wingspan, is broiler)
         // they shouldn't be equal
         Assert.assertNotEquals(chicken1, chicken3);

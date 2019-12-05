@@ -22,4 +22,6 @@ java -cp target/PafZoo-1.0-SNAPSHOT.jar com.paf.zoo.Main
 #### questions
 * If package Mockito is allowed to use, some unit tests of `Command` implementation could be added
 * Could two animals have the same name? I assume `Yes`, two animals with with exactly the same 
-properties shouldn't be equal. In the program, there a `UUID` property to identify `Animal`.  
+properties shouldn't be equal. In the program, there a `UUID` property to identify `Animal`.
+* Which properties of animal are required, which properties are optional? In my program,
+`name` and `favoriteFood` are obligatory， other properties are optional.  

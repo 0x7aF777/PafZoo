@@ -5,11 +5,6 @@ import java.util.Objects;
 public class Parrot extends Bird {
     private boolean couldSpeak;
 
-    public Parrot(String name, String favoriteFood, float wingspan, boolean couldSpeak) {
-        super(name, favoriteFood, wingspan);
-        this.couldSpeak = couldSpeak;
-    }
-
     public boolean isCouldSpeak() {
         return couldSpeak;
     }
@@ -36,5 +31,38 @@ public class Parrot extends Bird {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), isCouldSpeak());
+    }
+
+    private Parrot(Builder builder) {
+        super(builder);
+        this.couldSpeak = builder.couldSpeak;
+    }
+
+    public static Builder builder(String name, String favoriteFood) {
+        return new Builder(name, favoriteFood);
+    }
+
+    public static class Builder extends Bird.Builder<Builder> {
+
+        private boolean couldSpeak = false;
+
+        public Builder(String name, String favoriteFood) {
+            super(name, favoriteFood);
+        }
+
+        public Builder couldSpeak(boolean couldSpeak) {
+            this.couldSpeak = couldSpeak;
+            return self();
+        }
+
+        @Override
+        Parrot build() {
+            return new Parrot(this);
+        }
+
+        @Override
+        protected Builder self() {
+            return this;
+        }
     }
 }
