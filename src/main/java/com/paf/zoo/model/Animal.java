@@ -28,7 +28,8 @@ public abstract class Animal implements DisplayAble {
      */
     public boolean addFriend(Animal animal) {
         if (this != animal && this.friends.add(animal)) {
-            animal.friends.add(this);
+            System.out.println(String.format("%s has established a friendship with %s", this.getName(), animal.getName()));
+            animal.addFriend(this);
             return true;
         }
         return false;
@@ -37,7 +38,8 @@ public abstract class Animal implements DisplayAble {
     // avoid infinite recursion
     public boolean removeFriend(Animal animal) {
         if (this.friends.remove(animal)) {
-            animal.friends.remove(this);
+            System.out.println(String.format("%s has lost friendship with %s", this.getName(), animal.getName()));
+            animal.removeFriend(this);
             return true;
         }
         return false;

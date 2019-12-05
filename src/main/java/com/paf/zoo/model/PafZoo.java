@@ -18,6 +18,7 @@ public class PafZoo implements Zoo {
     public static PafZoo getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new PafZoo();
+            INSTANCE.welcome();
         }
         return INSTANCE;
     }
@@ -71,6 +72,7 @@ public class PafZoo implements Zoo {
     @Override
     public void exit() {
         System.out.println("BayBay, see you next time!");
+        System.exit(0);
     }
 
     @Override
