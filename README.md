@@ -8,10 +8,22 @@ mvn clean package
 ```
 After build, a jar file --`PafZoo-1.0-SNAPSHOT.jar` will be generated under target folder.
 
-**start program**
+**start**
 
 ```shell script
 java -cp target/PafZoo-1.0-SNAPSHOT.jar com.paf.zoo.Main
+```
+
+After the program starts, a usage instruction will be shown by default. The program
+supports 4 types of command: `display`, `live`, `help` and `exit`.
+
+```shell script
+-------------- Help/Usage ---------------
+Commands in the zoo system:
+display		Show current status of all animals in zoo
+live		Live one day in zoo, all changes in zoo will be displayed
+help		Show help information of command usage
+exit		Exit system
 ```
 
 #### Important aspects
