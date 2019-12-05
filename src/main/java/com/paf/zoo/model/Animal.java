@@ -71,6 +71,7 @@ public abstract class Animal implements DisplayAble {
         return getFriends().stream().map(Animal::getName).collect(Collectors.joining(", "));
     }
 
+    @Override
     public void display() {
         System.out.println("----------------");
         System.out.println(this.getClass().getSimpleName());
