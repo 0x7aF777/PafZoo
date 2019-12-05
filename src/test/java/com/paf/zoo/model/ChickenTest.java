@@ -1,6 +1,5 @@
-package com.paf.zoo;
+package com.paf.zoo.model;
 
-import com.paf.zoo.model.Chicken;
 import org.junit.Assert;
 import org.junit.Test;
 
