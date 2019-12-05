@@ -48,7 +48,19 @@ public class PafZoo implements Zoo {
      */
     @Override
     public void liveOneDay() {
-        throw new NotImplementedException();
+        Random random = new Random();
+        animals.parallelStream().forEach(animal -> {
+            // break friendship with one friend randomly if had any, important
+            Animal friend = Utility.getRandomElement(animal.getFriends());
+            if(friend != null) {
+                animal.removeFriend(friend);
+            }
+            // build friendship
+            if (random.nextBoolean()) {
+                Animal newFriend = Utility.getRandomElement(animals, animal.getFriends());
+                animal.addFriend(newFriend);
+            }
+        });
     }
 
     @Override
