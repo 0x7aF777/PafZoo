@@ -7,6 +7,9 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Random;
 
+/**
+ * Receiver
+ */
 public class PafZoo implements Zoo {
     private static PafZoo INSTANCE;
     private Collection<Animal> animals = new HashSet<>();
@@ -66,7 +69,7 @@ public class PafZoo implements Zoo {
 
     @Override
     public void welcome() {
-        System.out.println("Welcome to the PafZoo!");
+        System.out.println("======= Welcome to the zoo of Paf! =======");
     }
 
     @Override
