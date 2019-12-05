@@ -52,8 +52,10 @@ public class PafZoo implements Zoo {
      */
     @Override
     public void liveOneDay() {
+        System.out.println("--------- One Day Start ----------");
         Random random = new Random();
         animals.parallelStream().forEach(animal -> {
+            // TODO: should break friendship and make friendship parallel?
             // break friendship with one friend randomly if had any, important
             Animal friend = Utility.getRandomElement(animal.getFriends());
             if(friend != null) {
@@ -65,6 +67,7 @@ public class PafZoo implements Zoo {
                 animal.addFriend(newFriend);
             }
         });
+        System.out.println("--------- One Day End ----------");
     }
 
     @Override
