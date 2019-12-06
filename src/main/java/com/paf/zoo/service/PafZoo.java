@@ -11,13 +11,11 @@ import java.util.*;
  */
 public class PafZoo implements Zoo {
     private static PafZoo INSTANCE;
-    private Collection<Animal> animals;
     // In Spring framework, this property could be annotated with @Autowired annotation
     private DataService dataService;
 
     private PafZoo() {
         dataService = new InMemoryDataService();
-        animals = dataService.loadAnimalsInZoo();
     }
 
     public static PafZoo getInstance() {
@@ -30,12 +28,12 @@ public class PafZoo implements Zoo {
 
     @Override
     public Collection<Animal> getAnimals() {
-        return animals;
+        return dataService.getAnimals();
     }
 
     @Override
     public void display() {
-        animals.forEach(Animal::display);
+        dataService.getAnimals().forEach(Animal::display);
     }
 
     /**
@@ -46,6 +44,7 @@ public class PafZoo implements Zoo {
     public void liveOneDay() {
         System.out.println("--------- One Day Start ----------");
         Random random = new Random();
+        Collection<Animal> animals = dataService.getAnimals();
         animals.parallelStream().forEach(animal -> {
             // TODO: should break friendship and make friendship parallel?
             // break friendship with one friend randomly if had any, important
@@ -73,12 +72,12 @@ public class PafZoo implements Zoo {
     }
 
     @Override
-    public boolean addAnimal() {
-        throw new NotImplementedException();
+    public boolean addAnimal(Animal animal) {
+        return dataService.addAnimal(animal);
     }
 
     @Override
-    public boolean removeAnimal() {
-        throw new NotImplementedException();
+    public boolean removeAnimal(UUID uuid) {
+        return dataService.removeAnimal(uuid);
     }
 }

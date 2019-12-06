@@ -7,8 +7,8 @@ public class DatabaseDataServiceTest {
 
     // Implement unit tests for DatabaseDataService when the implementation is done
     @Test(expected = NotImplementedException.class)
-    public void loadAnimalsInZooTest() {
+    public void lgetAnimalsTest() {
         DataService dataService = new DatabaseDataService();
-        dataService.loadAnimalsInZoo();
+        dataService.getAnimals();
     }
 }

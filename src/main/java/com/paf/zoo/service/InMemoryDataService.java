@@ -4,12 +4,19 @@ import com.paf.zoo.model.Animal;
 import com.paf.zoo.model.Chicken;
 import com.paf.zoo.model.Dog;
 import com.paf.zoo.model.Parrot;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.UUID;
 
 public class InMemoryDataService implements DataService {
-    @Override
+    private Collection<Animal> animals;
+
+    public InMemoryDataService() {
+        this.animals = loadAnimalsInZoo();
+    }
+
     public Collection<Animal> loadAnimalsInZoo() {
         Collection<Animal> animals = new HashSet<>();
         animals.add(new Dog("Dog one", "Meat", "Hunting dog"));
@@ -30,5 +37,25 @@ public class InMemoryDataService implements DataService {
                 Parrot.builder("Parrot two", "Corn").wingspan(0.5f).couldSpeak(true).build()
         );
         return animals;
+    }
+
+    @Override
+    public Collection<Animal> getAnimals() {
+        return this.animals;
+    }
+
+    @Override
+    public boolean addAnimal(Animal animal) {
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public boolean removeAnimal(UUID uuid) {
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public boolean updateAnimal(Animal animal) {
+        throw new NotImplementedException();
     }
 }

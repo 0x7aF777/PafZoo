@@ -4,6 +4,7 @@ import com.paf.zoo.model.Animal;
 import com.paf.zoo.model.DisplayAble;
 
 import java.util.Collection;
+import java.util.UUID;
 
 public interface Zoo extends DisplayAble {
 
@@ -13,7 +14,7 @@ public interface Zoo extends DisplayAble {
 
     void exit();
 
-    boolean addAnimal();
+    boolean addAnimal(Animal animal);
 
-    boolean removeAnimal();
+    boolean removeAnimal(UUID uuid);
 }

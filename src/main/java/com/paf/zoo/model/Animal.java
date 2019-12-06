@@ -49,6 +49,10 @@ public abstract class Animal implements DisplayAble {
         return this.friends.contains(animal);
     }
 
+    public UUID getUuid() {
+        return uuid;
+    }
+
     public String getName() {
         return name;
     }

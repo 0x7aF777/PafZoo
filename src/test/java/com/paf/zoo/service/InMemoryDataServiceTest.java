@@ -8,9 +8,9 @@ import java.util.Collection;
 
 public class InMemoryDataServiceTest {
     @Test
-    public void loadAnimalsInZooTest() {
+    public void getAnimalsTest() {
         DataService dataService = new InMemoryDataService();
-        Collection<Animal> animals = dataService.loadAnimalsInZoo();
+        Collection<Animal> animals = dataService.getAnimals();
         Assert.assertNotNull(animals);
         Assert.assertEquals(7, animals.size());
     }
