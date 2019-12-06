@@ -26,11 +26,16 @@ help		Show help information of command usage
 exit		Exit system
 ```
 
-#### Important aspects
+#### Important aspects(Design)
 1. Friendship actions(build/break) of different animals should occur in parallel;
 2. Command design pattern makes the program extendable;
 3. If A and B are already friends, they couldn't establish friendship again;
 4. Animal couldn't build friendship with itself;
+
+The following picture is the classes diagram of my application. My application design is aiming for
+expandability and maintainability. If `Spring` framework is allow to use, a better version could
+be designed. 
+![architecture](zoo-architecture.png)
 
 #### questions
 * If package Mockito is allowed to use, some unit tests of `Command` implementation could be added
