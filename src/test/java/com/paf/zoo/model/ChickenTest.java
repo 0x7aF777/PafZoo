@@ -50,4 +50,25 @@ public class ChickenTest {
         // they shouldn't be equal
         Assert.assertNotEquals(chicken1, chicken3);
     }
+
+    @Test
+    public void addFriendTest() {
+        String name1 = "Chicken One";
+        String name2 = "Chicken One";
+        String food1 = "Rice";
+        String food2 = "Corn";
+
+        float wingspan = 0.5f;
+        Chicken chicken1 = Chicken.builder(name1, food1)
+                .wingspan(wingspan)
+                .isBroiler(true)
+                .build();
+        Chicken chicken2 = Chicken.builder(name2, food2)
+                .wingspan(wingspan)
+                .isBroiler(true)
+                .build();
+        Assert.assertTrue(chicken1.addFriend(chicken2));
+        Assert.assertFalse("An animal couldn't build friendship with its friend twice", chicken1.addFriend(chicken2));
+        Assert.assertFalse("An animal couldn't build friendship with itself", chicken1.addFriend(chicken1));
+    }
 }

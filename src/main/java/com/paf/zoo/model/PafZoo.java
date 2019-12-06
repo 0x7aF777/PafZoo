@@ -3,9 +3,7 @@ package com.paf.zoo.model;
 import com.paf.zoo.Utility;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Receiver
@@ -71,9 +69,9 @@ public class PafZoo implements Zoo {
             if(friend != null) {
                 animal.removeFriend(friend);
             }
-            // build friendship
+            // build friendship, A couldn't build friendship with itself
             if (random.nextBoolean()) {
-                Animal newFriend = Utility.getRandomElement(animals, animal.getFriends());
+                Animal newFriend = Utility.getRandomElement(animals, animal.getFriends(), Collections.singleton(animal));
                 animal.addFriend(newFriend);
             }
         });
