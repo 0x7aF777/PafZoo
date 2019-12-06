@@ -1,6 +1,7 @@
-package com.paf.zoo.model;
+package com.paf.zoo.service;
 
 import com.paf.zoo.Utility;
+import com.paf.zoo.model.Animal;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.*;
@@ -10,10 +11,13 @@ import java.util.*;
  */
 public class PafZoo implements Zoo {
     private static PafZoo INSTANCE;
-    private Collection<Animal> animals = new HashSet<>();
+    private Collection<Animal> animals;
+    // In Spring framework, this property could be annotated with @Autowired annotation
+    private DataService dataService;
 
     private PafZoo() {
-        initialZoo();
+        dataService = new InMemoryDataService();
+        animals = dataService.loadAnimalsInZoo();
     }
 
     public static PafZoo getInstance() {
@@ -22,26 +26,6 @@ public class PafZoo implements Zoo {
             INSTANCE.welcome();
         }
         return INSTANCE;
-    }
-
-    private void initialZoo() {
-        animals.add(new Dog("Dog one", "Meat", "Hunting dog"));
-        animals.add(new Dog("Dog two", "Fresh meat", "Assistance dog"));
-        animals.add(new Dog("Dog three", "Pedigree", "Racing dog"));
-
-        animals.add(
-                Chicken.builder("Chicken one", "Corn").wingspan(0.75f).isBroiler(true).build()
-        );
-        animals.add(
-                Chicken.builder("Chicken two", "Corn").wingspan(0.75f).isBroiler(false).build()
-        );
-
-        animals.add(
-                Parrot.builder("Parrot one", "Grain").wingspan(0.25f).couldSpeak(false).build()
-        );
-        animals.add(
-                Parrot.builder("Parrot two", "Corn").wingspan(0.5f).couldSpeak(true).build()
-        );
     }
 
     @Override
@@ -78,7 +62,6 @@ public class PafZoo implements Zoo {
         System.out.println("--------- One Day End ----------");
     }
 
-    @Override
     public void welcome() {
         System.out.println("======= Welcome to the zoo of Paf! =======");
     }

@@ -1,6 +1,6 @@
 package com.paf.zoo.command;
 
-import com.paf.zoo.model.Zoo;
+import com.paf.zoo.service.Zoo;
 
 public class LiveOneDayCommand implements Command {
     private Zoo zoo;

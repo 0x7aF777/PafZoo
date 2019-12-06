@@ -56,7 +56,7 @@ public class Chicken extends Bird {
         }
 
         @Override
-        Chicken build() {
+        public Chicken build() {
             return new Chicken(this);
         }
 

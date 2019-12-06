@@ -1,6 +1,6 @@
-package com.paf.zoo;
+package com.paf.zoo.service;
 
-public class Helper {
+public class HelpService {
     public static void displayUsage() {
         System.out.println("-------------- Help/Usage ---------------");
         System.out.println("Commands in the zoo system:");

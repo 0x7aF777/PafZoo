@@ -1,6 +1,6 @@
 package com.paf.zoo.command;
 
-import com.paf.zoo.Helper;
+import com.paf.zoo.service.HelpService;
 
 public class HelpCommand implements Command {
     private static HelpCommand INSTANCE;
@@ -16,6 +16,6 @@ public class HelpCommand implements Command {
 
     @Override
     public void execute() {
-        Helper.displayUsage();
+        HelpService.displayUsage();
     }
 }

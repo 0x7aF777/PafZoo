@@ -56,7 +56,7 @@ public class Parrot extends Bird {
         }
 
         @Override
-        Parrot build() {
+        public Parrot build() {
             return new Parrot(this);
         }
 

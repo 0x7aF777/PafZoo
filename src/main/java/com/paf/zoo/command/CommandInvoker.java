@@ -1,6 +1,6 @@
 package com.paf.zoo.command;
 
-import com.paf.zoo.model.PafZoo;
+import com.paf.zoo.service.PafZoo;
 
 public enum CommandInvoker {
     EXIT(ExitCommand.getInstance()),
