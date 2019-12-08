@@ -54,7 +54,7 @@ public class ChickenTest {
     @Test
     public void addFriendTest() {
         String name1 = "Chicken One";
-        String name2 = "Chicken One";
+        String name2 = "Chicken Two";
         String food1 = "Rice";
         String food2 = "Corn";
 
@@ -67,7 +67,14 @@ public class ChickenTest {
                 .wingspan(wingspan)
                 .isBroiler(true)
                 .build();
+        Chicken chicken3 = Chicken.builder(name2, food2)
+                .wingspan(wingspan)
+                .isBroiler(true)
+                .build();
         Assert.assertTrue(chicken1.addFriend(chicken2));
+        Assert.assertTrue(chicken1.isFriendOf(chicken2));
+        Assert.assertTrue(chicken2.isFriendOf(chicken1));
+        Assert.assertFalse(chicken1.isFriendOf(chicken3));
         Assert.assertFalse("An animal couldn't build friendship with its friend twice", chicken1.addFriend(chicken2));
         Assert.assertFalse("An animal couldn't build friendship with itself", chicken1.addFriend(chicken1));
     }

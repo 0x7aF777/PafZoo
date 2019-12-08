@@ -25,7 +25,7 @@ public class DogTest {
     @Test
     public void dogEqualTest() {
         String name1 = "Dog One";
-        String name2 = "Dog One";
+        String name2 = "Dog Two";
         String food1 = "Meat";
         String food2 = "Pedigree";
         String dogType = "Hunting Dog";

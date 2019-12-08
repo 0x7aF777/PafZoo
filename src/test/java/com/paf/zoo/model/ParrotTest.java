@@ -26,7 +26,7 @@ public class ParrotTest {
     @Test
     public void parrotEqualTest() {
         String name1 = "Parrot One";
-        String name2 = "Parrot One";
+        String name2 = "Parrot Two";
         String food1 = "Rice";
         String food2 = "Corn";
 
