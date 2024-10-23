@@ -6,12 +6,12 @@ This is a simple Java console project(Maven) for developer test assignment of PA
  ```shell script
 mvn clean package
 ```
-After build, a jar file --`PafZoo-1.0-SNAPSHOT.jar` will be generated under target folder.
+After build, a jar file --`PafZoo-1.0-SNAPSHOT-jar-with-dependencies.jar` will be generated under target folder.
 
 **start**
 
 ```shell script
-java -cp target/PafZoo-1.0-SNAPSHOT.jar com.paf.zoo.Main
+java -cp target/PafZoo-1.0-SNAPSHOT-jar-with-dependencies.jar com.paf.zoo.Main
 ```
 
 After the program starts, a usage instruction will be shown by default. The program
