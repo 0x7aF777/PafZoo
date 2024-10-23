@@ -1,7 +1,7 @@
 package com.paf.zoo.service;
 
 import com.paf.zoo.model.Animal;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.Collection;
 import java.util.UUID;

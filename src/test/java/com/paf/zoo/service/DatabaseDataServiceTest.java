@@ -1,7 +1,7 @@
 package com.paf.zoo.service;
 
+import org.apache.commons.lang3.NotImplementedException;
 import org.junit.Test;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class DatabaseDataServiceTest {
 

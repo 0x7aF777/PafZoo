@@ -4,7 +4,7 @@ import com.paf.zoo.model.Animal;
 import com.paf.zoo.model.Chicken;
 import com.paf.zoo.model.Dog;
 import com.paf.zoo.model.Parrot;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.Collection;
 import java.util.HashSet;
